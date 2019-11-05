@@ -21,7 +21,7 @@ cstl_error get_data_cstl_object(struct cstl_object *my_object, void **elem)
 {
 	cstl_error ret = CSTL_SUCCESS;
 
-	*elem = (void*)malloc((my_object->size);
+	*elem = (void*)malloc(my_object->size);
 	if (! *elem)
 		return CSTL_ELEMENT_RETURN_ERROR;
 	
