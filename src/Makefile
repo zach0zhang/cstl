@@ -1,4 +1,4 @@
-P_NAME          :=  libclib.a
+P_NAME          :=  libcstl.a
 P_C_SRCS        :=  $(wildcard *.c)
 P_C_OBJS        :=  ${P_C_SRCS:.c=.o}
 P_OBJS          :=  $(P_C_OBJS) 

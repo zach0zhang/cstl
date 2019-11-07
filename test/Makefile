@@ -1,9 +1,9 @@
-P_NAME          :=  tstclib
+P_NAME          :=  tstcstl
 P_C_SRCS        :=  $(wildcard *.c)
 P_C_OBJS        :=  ${P_C_SRCS:.c=.o}
 P_INCLUDE_DIRS  :=  ../inc
 P_LIBRARY_DIRS  :=  ../src
-P_LIBRARIES     :=  clib
+P_LIBRARIES     :=  cstl
 CPPFLAGS        +=  $(foreach includedir,$(P_INCLUDE_DIRS),-I$(includedir))
 LDFLAGS         +=  $(foreach librarydir,$(P_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS         +=  $(foreach library,$(P_LIBRARIES),-l$(library))

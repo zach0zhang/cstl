@@ -130,7 +130,7 @@ static inline void delete_cstl_map_node(struct cstl_map *my_map, struct cstl_map
 		my_map->destruct_key_function(my_node->key);
 	delete_cstl_object(my_node->key);
 	if (my_map->destruct_value_function)
-		my_map->destruct_key_function(my_node->value);
+		my_map->destruct_value_function(my_node->value);
 	delete_cstl_object(my_node->value);
 }
 
