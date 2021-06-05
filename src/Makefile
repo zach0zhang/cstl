@@ -7,7 +7,7 @@ CPPFLAGS        +=  $(foreach includedir,$(P_INCLUDE_DIRS),-I$(includedir))
 LDFLAGS         +=  $(foreach librarydir,$(P_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS         +=  $(foreach library,$(P_LIBRARIES),-l$(library))
 CXX             :=  gcc
-CC              :=  gcc -g -Wall -Wextra -Wparentheses -pedantic
+CC              :=  gcc -g -Wall -Wextra 
 
 .PHONY:         all clean
 all:            $(P_NAME)

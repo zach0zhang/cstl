@@ -219,7 +219,6 @@ static struct cstl_object *get_next_cstl_map(struct cstl_iterator *my_itr)
 	if (!my_itr->current_element)
 		my_itr->current_element = minimum_cstl_map_node(my_itr->container);
 	else {
-		struct cstl_map *my_map = my_itr->container;
 		struct rb_node *my_node = &((struct cstl_map_node *)my_itr->current_element)->node;
 		struct rb_node *tmp;
 		if (my_node->right) {

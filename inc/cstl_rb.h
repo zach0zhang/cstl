@@ -42,7 +42,7 @@ static inline void rb_set_parent_color(struct rb_node *rb, struct rb_node *p, in
 }
 
 #define RB_ROOT (struct rb_root) {NULL, }
-#define offsetof(TYPE, MEMBER) ((unsigned int) &((TYPE *)0)->MEMBER)
+#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 #define container_of(ptr, type, member) ({ 		\
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);	\
 	(type *)( (char *)__mptr - offsetof(type, member) );})
