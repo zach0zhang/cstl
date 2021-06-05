@@ -20,7 +20,7 @@ static void insert_all(struct cstl_map *my_map)
 		char *key = strdup(char_value[i]);
 		int key_length = (int)strlen(key) + 1;
 		int value = int_value[i];
-		printf("Inserting [%s -> %d]\n", key, value);
+		//printf("Inserting [%s -> %d]\n", key, value);
 		insert_cstl_map(my_map, key, key_length, &value, sizeof(int));
 		free(key);
 	}
@@ -34,7 +34,7 @@ static void insert_some(struct cstl_map *my_map)
 		char *key = strdup(new_char_value[i]);
 		int key_length = (int)strlen(key) + 1;
 		int value = i;
-		printf("Inserting [%s -> %d]\n", key, value);
+		//printf("Inserting [%s -> %d]\n", key, value);
 		insert_cstl_map(my_map, key, key_length, &value, sizeof(int));
 		free(key);
 	}
@@ -47,7 +47,7 @@ static void check_all(struct cstl_map *my_map)
 		void *value;
 		assert(cstl_true == exists_cstl_map(my_map, char_value[i]));
 		assert(cstl_true == find_cstl_map(my_map, char_value[i], &value));
-		printf("Result [%s, %d]\n", char_value[i], *(int *)value);
+		//printf("Result [%s, %d]\n", char_value[i], *(int *)value);
 		//assert(*(int *)value == int_value[i]);
 		free(value);
 	}
@@ -81,7 +81,7 @@ static void print_using_iterator(struct cstl_map *my_map)
 	my_object = my_itr->get_next(my_itr);
 	while (my_object) {
 		void *value = my_itr->get_value(my_object);
-		printf("%d\n", *(int *)value);
+		//printf("%d\n", *(int *)value);
 		free(value);
 		my_object = my_itr->get_next(my_itr);
 	}
@@ -106,7 +106,7 @@ static void replace_using_iterator(struct cstl_map *my_map)
 	delete_iterator_cstl_map(my_itr);
 }
 
-static test_iterators()
+static void test_iterators()
 {
 	struct cstl_map *my_map = new_cstl_map(compare_function, NULL, NULL);
 	insert_all(my_map);
