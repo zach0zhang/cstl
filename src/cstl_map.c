@@ -272,7 +272,7 @@ struct cstl_iterator *new_iterator_cstl_map(struct cstl_map *my_map)
 	my_itr->get_value = get_value_cstl_map;
 	my_itr->container = my_map;
 	my_itr->current = 0;
-	void *current_element = (void *)0;
+	my_itr->current_element = (void *)0;
 	return my_itr;
 }
 
