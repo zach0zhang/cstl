@@ -101,15 +101,15 @@ static void test_with_iterator()
 	}
     struct cstl_deque *my_deque = new_cstl_deque(8, NULL, NULL);
     for (int i = 0; i < size; i++)
-        push_back_cstl_deque(my_deque, input_string[i], sizeof(input_string[i]));
+        push_back_cstl_deque(my_deque, input_string[i], strlen(input_string[i]) + 1);
 
     my_itr = new_iterator_cstl_deque(my_deque);
     element = my_itr->get_next(my_itr);
     while (element) {
         void *value = my_itr->get_value(element);
         //printf("%s\n", (char *)value);
-        snprintf(value, strlen(value) + 1, "re");
-        my_itr->replace_value(my_itr, value, sizeof(value));
+        char *new_value = "re";
+        my_itr->replace_value(my_itr, new_value, strlen(new_value) + 1);
         free(value);
         element = my_itr->get_next(my_itr);
     }
@@ -125,7 +125,9 @@ static void test_with_iterator()
         element = my_itr->get_next(my_itr);
     }
     delete_iterator_cstl_deque(my_itr);
-    
+
+    for(int i = 0; i < size; i++)
+        free(input_string[i]);
     assert(CSTL_SUCCESS == delete_cstl_deque(my_deque));
 }
 

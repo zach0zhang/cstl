@@ -183,7 +183,7 @@ static void test_with_strings()
 		push_back_cstl_vector(my_vector, v, strlen(v) + 1);
 		free(v);
 		*/
-		push_back_cstl_vector(my_vector, input_vector[i], sizeof(input_vector[i]));
+		push_back_cstl_vector(my_vector, input_vector[i], strlen(input_vector[i]) + 1);
 	}
 	assert(cstl_false == empty_cstl_vector(my_vector));
 	assert(size == size_cstl_vector(my_vector));
@@ -192,7 +192,7 @@ static void test_with_strings()
 		ret = element_at_cstl_vector(my_vector, i, &elem);
 		assert(ret == CSTL_SUCCESS);
 		assert(strcmp((char *)elem, input_vector[i]) == 0);
-		//printf("after push_back_cstl_vector, my_vector->elements[%d]->raw_data = %s\n", i, (char *)elem);
+		//printf("after push_back_cstl_vector, my_vector->elements[%d]->data = %s\n", i, (char *)elem);
 		free(elem);
 	}
 

@@ -41,6 +41,7 @@ void replace_data_cstl_object(struct cstl_object *current_object, void *elem, si
 {
 	free(current_object->data);
 	current_object->data = (void*)malloc(elem_size);
+	current_object->size = elem_size;
 	memcpy(current_object->data, elem, elem_size);
 
 }
