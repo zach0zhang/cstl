@@ -1,5 +1,10 @@
 #include "cstl_lib.h"
 
+#define CHECK_DEQUE(deque)     do {             \
+    if (!deque)                                 \
+        return CSTL_DEQUE_NOT_INITIALIZED;      \
+    } while (0)
+
 static struct cstl_deque *grow_deque(struct cstl_deque *my_deque) {
     my_deque->capacity = my_deque->capacity * 2;
     my_deque->elements = (struct cstl_object**) realloc(my_deque->elements, my_deque->capacity * sizeof(struct cstl_object*));
@@ -41,8 +46,8 @@ struct cstl_deque *new_cstl_deque(int capacity, cstl_compare fn_c, cstl_destory 
 cstl_error push_back_cstl_deque(struct cstl_deque *my_deque, void *elem, size_t elem_size)
 {
     cstl_error ret = CSTL_SUCCESS;
-    if (!my_deque)
-        return CSTL_DEQUE_NOT_INITIALIZED;
+
+    CHECK_DEQUE(my_deque);
 
     if (my_deque->tail == my_deque->capacity)
         my_deque = grow_deque(my_deque);
@@ -59,8 +64,7 @@ cstl_error push_front_cstl_deque(struct cstl_deque *my_deque, void *elem, size_t
     cstl_error ret = CSTL_SUCCESS;
     int to = 0, from = 0, count = 0;
 
-    if (!my_deque)
-        return CSTL_DEQUE_NOT_INITIALIZED;
+    CHECK_DEQUE(my_deque);
 
     if (my_deque->head == 0) {
         my_deque = grow_deque(my_deque);
@@ -82,8 +86,7 @@ static cstl_error element_at_cstl_deque(struct cstl_deque *my_deque, int index, 
 {
     cstl_error ret = CSTL_SUCCESS;
 
-    if (!my_deque)
-        return CSTL_DEQUE_NOT_INITIALIZED;
+    CHECK_DEQUE(my_deque);
     
     ret = get_data_cstl_object(my_deque->elements[index], elem);
 
@@ -102,8 +105,7 @@ cstl_error back_cstl_deque(struct cstl_deque *my_deque, void **elem)
 
 cstl_error pop_back_cstl_deque(struct cstl_deque *my_deque)
 {
-    if (!my_deque)
-        return CSTL_DEQUE_NOT_INITIALIZED;
+    CHECK_DEQUE(my_deque);
 
     if (my_deque->destruct_fn) {
         void *elem;
@@ -120,8 +122,7 @@ cstl_error pop_back_cstl_deque(struct cstl_deque *my_deque)
 
 cstl_error pop_front_cstl_deque(struct cstl_deque *my_deque)
 {
-    if (!my_deque)
-        return CSTL_DEQUE_NOT_INITIALIZED;
+    CHECK_DEQUE(my_deque);
 
     if (my_deque->destruct_fn) {
         void *elem;
@@ -146,8 +147,7 @@ cstl_bool empty_cstl_deque(struct cstl_deque *my_deque)
 
 int size_cstl_deque(struct cstl_deque *my_deque)
 {
-    if (!my_deque)
-        return cstl_true;
+    CHECK_DEQUE(my_deque);
 
     return my_deque->index;
 }

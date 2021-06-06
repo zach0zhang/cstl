@@ -24,7 +24,11 @@ enum {
 	CSTL_MAP_KEY_NOT_FOUND,
 	
 	CSTL_DEQUE_NOT_INITIALIZED = 0x80000301,
-	CSTL_DEQUE_INSERT_FAILED
+	CSTL_DEQUE_INSERT_FAILED,
+
+	CSTL_STACK_NOT_INITIALIZED = 0x80000401,
+	CSTL_STACK_INSERT_FAILED,
+	CSTL_STACK_IS_EMPTY
 };
 
 typedef void (*cstl_destory)(void*);
@@ -55,6 +59,7 @@ struct cstl_iterator {
 #include "cstl_rb.h"
 #include "cstl_map.h"
 #include "cstl_deque.h"
+#include "cstl_stack.h"
 extern struct cstl_object* new_cstl_object(void *elem, size_t elem_size);
 extern cstl_error get_data_cstl_object(struct cstl_object *my_object, void **elem);
 extern void delete_cstl_object(struct cstl_object *my_object);
