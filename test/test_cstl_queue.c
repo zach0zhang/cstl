@@ -129,7 +129,7 @@ static void test_without_auto_grow()
     assert(cstl_true == empty_cstl_queue(my_queue));
     assert(0 == size_cstl_queue(my_queue));
 
-
+    assert(CSTL_SUCCESS == delete_cstl_queue(my_queue));
 }
 
 void test_cstl_queue()

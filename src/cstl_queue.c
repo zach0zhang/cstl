@@ -140,13 +140,12 @@ cstl_error pop_cstl_queue(struct cstl_queue *my_queue)
 
  cstl_error delete_cstl_queue(struct cstl_queue *my_queue)
  {
-    if (my_queue)
+    if (!my_queue)
         return CSTL_SUCCESS;
 
-    if (my_queue->destruct_fn) {
-        while(!empty_cstl_queue(my_queue))
-            pop_cstl_queue(my_queue);
-    }
+
+    while(!empty_cstl_queue(my_queue))
+        pop_cstl_queue(my_queue);
 
     free(my_queue->elements);
     free(my_queue);
