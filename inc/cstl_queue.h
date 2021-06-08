@@ -20,6 +20,7 @@ extern struct cstl_queue *new_cstl_queue(int capacity, cstl_compare fn_c, cstl_d
 extern cstl_error push_cstl_queue(struct cstl_queue *my_queue, void *elem, size_t elem_size);
 extern cstl_error top_cstl_queue(struct cstl_queue *my_queue, void **elem);
 extern cstl_error pop_cstl_queue(struct cstl_queue *my_queue);
+extern cstl_bool full_cstl_queue(struct cstl_queue *my_queue);
 extern cstl_bool empty_cstl_queue(struct cstl_queue *my_queue);
 extern int size_cstl_queue(struct cstl_queue *my_queue);
 extern cstl_error delete_cstl_queue(struct cstl_queue *my_queue);

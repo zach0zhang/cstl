@@ -85,13 +85,11 @@ cstl_error push_cstl_queue(struct cstl_queue *my_queue, void *elem, size_t elem_
     if (my_queue->num == my_queue->capacity) {
         old_cap = my_queue->capacity;
         my_queue = grow_queue(my_queue);
-        if (my_queue->tx < my_queue->rx) {
-            from = my_queue->rx;
-            count = old_cap - from;
-            to = my_queue->capacity - count;
-            memmove(&(my_queue->elements[to]), &(my_queue->elements[from]), count * sizeof(struct cstl_object*));
-            my_queue->rx = to;
-        }
+        from = my_queue->rx;
+        count = old_cap - from;
+        to = my_queue->capacity - count;
+        memmove(&(my_queue->elements[to]), &(my_queue->elements[from]), count * sizeof(struct cstl_object*));
+        my_queue->rx = to;
     }
 
     struct cstl_object *my_object = new_cstl_object(elem, elem_size);
