@@ -98,7 +98,7 @@ extern struct cstl_iterator *new_iterator_cstl_deque(struct cstl_deque *my_deque
 extern void delete_iterator_cstl_deque(struct cstl_iterator *my_itr);
 ```
 
-### sample file:
+### deque sample file:
 [test_cstl_deque](https://github.com/zach0zhang/cstl/blob/master/test/test_cstl_deque.c)
 
 
@@ -120,7 +120,7 @@ extern int size_cstl_stack(struct cstl_stack *my_stack);
 extern cstl_error delete_cstl_stack(struct cstl_stack *my_stack);
 ```
 
-### sample file:
+### stack sample file:
 [test_cstl_stack](https://github.com/zach0zhang/cstl/blob/master/test/test_cstl_stack.c)
 
 
@@ -152,5 +152,5 @@ extern struct cstl_iterator *new_iterator_cstl_map(struct cstl_map *my_map);
 extern void delete_iterator_cstl_map(struct cstl_iterator *my_itr);
 ```
 
-### sample file:
+### map sample file:
 [test_cstl_map](https://github.com/zach0zhang/cstl/blob/master/test/test_cstl_map.c)
