@@ -57,8 +57,10 @@ cstl_error insert_cstl_map(struct cstl_map *my_map, void *key, size_t key_size, 
 			tmp = &((*tmp)->left);
 		else if (c > 0)
 			tmp = &((*tmp)->right);
-		else
+		else {
+			free(my_node);
 			return CSTL_MAP_KEY_ALREADY_EXIST;
+		}
 	}	
 	
 	rb_link_node(&my_node->node, parent, tmp);
