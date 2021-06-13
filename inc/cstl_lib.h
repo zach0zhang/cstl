@@ -33,7 +33,10 @@ enum {
 	CSTL_QUEUE_NOT_INITIALIZED = 0x80000501,
 	CSTL_QUEUE_INSERT_FAILED,
 	CSTL_QUEUE_IS_EMPTY,
-	CSTL_QUEUE_IS_FULL
+	CSTL_QUEUE_IS_FULL,
+
+	CSTL_SET_NOT_INITIALIZED = 0x80000601,
+	CSTL_SET_KEY_ALREADY_EXIST
 };
 
 typedef void (*cstl_destory)(void*);
@@ -66,6 +69,7 @@ struct cstl_iterator {
 #include "cstl_deque.h"
 #include "cstl_stack.h"
 #include "cstl_queue.h"
+#include "cstl_set.h"
 extern struct cstl_object* new_cstl_object(void *elem, size_t elem_size);
 extern cstl_error get_data_cstl_object(struct cstl_object *my_object, void **elem);
 extern void delete_cstl_object(struct cstl_object *my_object);
